@@ -3,6 +3,7 @@ import { DataService } from '../services/data.service';
 import { HttpClient } from '@angular/common/http';
 import { Exercises } from '../classes/Exercises';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AdvExercises } from '../classes/AdvExercises';
 // import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
@@ -10,11 +11,11 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './advanced.component.html',
   styleUrls: ['./advanced.component.css'],
 })
-export class AdvancedComponent {
+export class AdvancedComponent implements OnInit {
   baseUrl = this.data.baseUrl;
   uID = this.data.loggedInUserId;
   completeExForm!: FormGroup;
-  exercises: Exercises[] = this.data.exercises;
+  advExercises: AdvExercises[] = this.data.advExercises;
 
   constructor(
     private data: DataService,
@@ -33,13 +34,14 @@ export class AdvancedComponent {
   //   return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   // }
 
-  completeExercise(exerciseId: any) {
+  completeExercise(exerciseId: any, split: any) {
     this.http
-      .post(this.baseUrl + 'completeEx.php', {
+      .post(this.baseUrl + 'advComplete.php', {
         UserId: this.data.loggedInUserId,
         ExId: exerciseId,
         Weight: this.completeExForm.value.weight,
         Reps: this.completeExForm.value.repetitions,
+        Splits: split,
       })
       .subscribe((data: any) => {
         console.log(data);
@@ -47,13 +49,14 @@ export class AdvancedComponent {
       });
   }
 
-  unCompleteExercise(exerciseId: any) {
+  unCompleteExercise(exerciseId: any, split: any) {
     this.http
-      .post(this.baseUrl + 'unCompleteEx.php', {
+      .post(this.baseUrl + 'advUnComplete.php', {
         UserId: this.data.loggedInUserId,
         ExId: exerciseId,
         Weight: this.completeExForm.value.weight,
         Reps: this.completeExForm.value.repetitions,
+        Splits: split,
       })
       .subscribe((data: any) => {
         console.log(data);

@@ -10,6 +10,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
 import { AdvancedComponent } from './advanced/advanced.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AdvancedComponent } from './advanced/advanced.component';
     HomeComponent,
     WorkoutsComponent,
     AdvancedComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,

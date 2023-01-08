@@ -1,3 +1,5 @@
+<app-navigation></app-navigation>
+
 <div class="container-fluid pt-5 mt-3" style="background-color: black">
   <div class="row">
     <h1 style="color: orange; text-align: center; margin-bottom: 30px">
@@ -76,9 +78,16 @@
           <p class="card-text">
             {{ advSplit.description }}
           </p>
-          <a href="#" class="btn btn-dark" style="color: orange"
-            >Check Program</a
+          <p class="card-text">
+            {{ advSplit.DaysDescription }}
+          </p>
+          <button
+            (click)="displayAdvWorkouts(advSplit.id)"
+            class="btn btn-dark"
+            style="color: orange"
           >
+            Check Program
+          </button>
         </div>
       </div>
     </div>

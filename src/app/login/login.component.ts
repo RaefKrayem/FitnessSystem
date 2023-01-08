@@ -24,7 +24,6 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   LoginForm!: FormGroup;
-  errorMessage = '';
   baseUrl: string = 'http://localhost:80/crudTest/';
   validateAllFormFields = this.validateFormService.validateAllFormFields;
 
@@ -57,7 +56,7 @@ export class LoginComponent implements OnInit {
           if (result['success']) {
             this.router.navigate(['/home']);
           } else {
-            this.errorMessage = result['message'];
+            alert('Invalid username or password');
           }
         });
     } else {

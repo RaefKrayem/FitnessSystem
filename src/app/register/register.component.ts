@@ -13,6 +13,7 @@ import {
 } from '@angular/common/http';
 import { ValidateFormService } from '../services/validate-form.service';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -28,7 +29,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private validateFormService: ValidateFormService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -59,8 +61,12 @@ export class RegisterComponent implements OnInit {
           password: this.registerForm.value.password,
         })
         .subscribe((data: any) => {
-          console.log(data);
-          alert('Register Success');
+          if (data['success']) {
+            alert(data['message']);
+            this.router.navigate(['/login']);
+          } else {
+            alert(data['message']);
+          }
         });
     } else {
       this.validateAllFormFields(this.registerForm);

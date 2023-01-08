@@ -74,7 +74,7 @@ export class HomeComponent implements OnInit {
     {
       name: 'Shoulders and Traps',
       description:
-        'We recommend to do 4-5 shoulders exercises and 1-2 traps exercises',
+        'We recommend to do 4-5 shoulders exercises and 1-2 traps exercises. Every exercise 3-4 sets of 6-12 repetitions.',
       img: 'lateral raises.jpg',
     },
     {
@@ -89,20 +89,28 @@ export class HomeComponent implements OnInit {
     {
       name: '3 Days Split',
       description:
-        'Here is a three days workout plan that targets every muscle group once per week.',
+        'Here is a three days workout plan that targets every muscle group once per week. There is one day of rest between each workout.',
+      DaysDescription: 'Day 1: Push, Day 2: Pull, Day 3: Legs.',
       img: 'incline press.jpg',
+      id: '3',
     },
     {
       name: '5 Days Split',
       description:
         'Here is a five days workout plan that targets every muscle group twice per week with two resting days.',
+      DaysDescription:
+        'Day 1: Push, Day 2: Pull, Day 3: Legs, Day 4: Upper, Day 5: Lower.',
       img: 'lat.jpg',
+      id: '5',
     },
     {
       name: '6 Days Split',
       description:
         'Here is a six days workout plan that targets every muscle group twice per week with one resting day.',
+      DaysDescription:
+        'Day 1: Push, Day 2: Pull, Day 3: Legs, Day 4: Push, Day 5: Pull, Day 6: Legs.',
       img: 'deadlift.jpg',
+      id: '6',
     },
   ];
 
@@ -112,5 +120,9 @@ export class HomeComponent implements OnInit {
 
   displayWorkouts(muscleGroup: string, level: string) {
     this.data.displayWorkouts(muscleGroup, level);
+  }
+
+  displayAdvWorkouts(id: any) {
+    this.data.displayAdvWorkouts(id);
   }
 }

@@ -2,3 +2,17 @@
   background-color: orange;
   margin-bottom: 15px;
 }
+
+.bgTransparent {
+  background-color: transparent;
+  border: none;
+}
+
+.videoBtn {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.videoBtn a {
+  color: orange;
+}

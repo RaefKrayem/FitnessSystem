@@ -41,10 +41,7 @@ export class WorkoutsComponent implements OnInit {
         Weight: this.completeExForm.value.weight,
         Reps: this.completeExForm.value.repetitions,
       })
-      .subscribe((data: any) => {
-        console.log(data);
-        alert('Complete Success');
-      });
+      .subscribe();
   }
 
   unCompleteExercise(exerciseId: any) {
@@ -55,9 +52,6 @@ export class WorkoutsComponent implements OnInit {
         Weight: this.completeExForm.value.weight,
         Reps: this.completeExForm.value.repetitions,
       })
-      .subscribe((data: any) => {
-        console.log(data);
-        alert('unComplete Success');
-      });
+      .subscribe();
   }
 }

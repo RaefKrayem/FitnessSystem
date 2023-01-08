@@ -1,10 +1,11 @@
+<app-navigation></app-navigation>
+
 <div
   class="container-fluid mt-3 pt-5"
   style="background-color: black; padding-bottom: 10px"
 >
   <h1 style="color: orange">
-    <!-- Muscle Group Name -->
-    Chest
+    <strong>Workouts</strong>
   </h1>
   <br /><br />
   <div class="row">
@@ -12,7 +13,7 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">{{ exercise.Name }}</h4>
-
+          <h6 class="card-text">{{ exercise.Target }}</h6>
           <!-- <iframe
             width="100%"
             height="250"
@@ -43,23 +44,36 @@
             <div class="form-group">
               <div class="input-field">
                 <div
-                  class="buttons d-flex justify-content-between form-control"
+                  class="buttons d-flex justify-content-between form-control bgTransparent"
                 >
-                  <input
+                  <button
                     class="btn btn-success"
                     style="color: white"
-                    value="Complete Exercise"
                     (click)="completeExercise(exercise.ID)"
                     cursor="pointer"
-                  />
-                  <input
+                  >
+                    Complete Exercise
+                  </button>
+                  <button
                     class="btn btn-danger"
-                    value="unComplete Exercise"
                     (click)="unCompleteExercise(exercise.ID)"
                     cursor="pointer"
-                  />
+                  >
+                    unComplete Exercise
+                  </button>
                 </div>
               </div>
+            </div>
+
+            <div class="videoBtn">
+              <a
+                class="btn btn-dark"
+                type="button"
+                href="{{ exercise.Video }}"
+                target="_blank"
+              >
+                Detailed Video
+              </a>
             </div>
           </form>
           <br />

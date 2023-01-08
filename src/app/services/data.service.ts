@@ -7,6 +7,7 @@ import {
 import { Users } from '../classes/Users';
 import { WorkoutsComponent } from '../workouts/workouts.component';
 import { Exercises } from '../classes/Exercises';
+import { AdvExercises } from '../classes/AdvExercises';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -16,6 +17,7 @@ export class DataService {
   baseUrl: string = 'http://localhost:80/crudTest/';
   loggedInUserId: any;
   exercises: Exercises[] = [];
+  advExercises: AdvExercises[] = [];
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -34,6 +36,22 @@ export class DataService {
           console.log(result['records']);
           this.exercises = result['records'];
           this.router.navigate(['/workouts']);
+        } else {
+          console.log('error displaying exercises');
+        }
+      });
+  }
+
+  displayAdvWorkouts(daysNum: number) {
+    this.http
+      .post(this.baseUrl + 'displayAdvWorkouts.php', {
+        daysNum: daysNum,
+      })
+      .subscribe((result: any) => {
+        if (result['success']) {
+          console.log(result['records']);
+          this.advExercises = result['records'];
+          this.router.navigate(['/advanced']);
         } else {
           console.log('error displaying exercises');
         }
