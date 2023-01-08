@@ -1,0 +1,70 @@
+<div
+  class="container-fluid mt-3 pt-5"
+  style="background-color: black; padding-bottom: 10px"
+>
+  <h1 style="color: orange">
+    <!-- Muscle Group Name -->
+    Chest
+  </h1>
+  <br /><br />
+  <div class="row">
+    <div class="col-md-4" *ngFor="let exercise of exercises">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ exercise.Name }}</h4>
+
+          <!-- <iframe
+            width="100%"
+            height="250"
+            [src]="getSafeUrl(exercise.Video)"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe> -->
+
+          <form class="pt-2" [formGroup]="completeExForm">
+            <input
+              type="number"
+              name="weight"
+              id="weight"
+              class="form-control"
+              formControlName="weight"
+              placeholder="Weight (in kilograms)"
+            /><br />
+            <input
+              type="number"
+              name="repetitions"
+              id="repetitions"
+              class="form-control"
+              formControlName="repetitions"
+              placeholder="Number of repetitions"
+            /><br />
+            <div class="form-group">
+              <div class="input-field">
+                <div
+                  class="buttons d-flex justify-content-between form-control"
+                >
+                  <input
+                    class="btn btn-success"
+                    style="color: white"
+                    value="Complete Exercise"
+                    (click)="completeExercise(exercise.ID)"
+                    cursor="pointer"
+                  />
+                  <input
+                    class="btn btn-danger"
+                    value="unComplete Exercise"
+                    (click)="unCompleteExercise(exercise.ID)"
+                    cursor="pointer"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

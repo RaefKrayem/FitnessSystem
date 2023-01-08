@@ -1,0 +1,211 @@
+<section class="h-100 gradient-form" style="background-color: black">
+  <div class="container-fluid py-5 h-100" style="background-color: black">
+    <div
+      class="row d-flex justify-content-center align-items-center h-100"
+      style="background-color: black"
+    >
+      <div class="col-xl-10" style="background-color: black">
+        <div class="card rounded-3 text-black" style="background-color: orange">
+          <div class="row g-0">
+            <div class="col-lg-6">
+              <div class="card-body p-md-5 mx-md-4">
+                <div class="text-center">
+                  <img
+                    src="../assets/Golden line.png"
+                    style="width: 185px"
+                    alt="logo"
+                  />
+                </div>
+
+                <form [formGroup]="registerForm">
+                  <div class="form-outline">
+                    <label class="form-label" for="name">Full Name</label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      class="form-control"
+                      formControlName="name"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['name'].dirty &&
+                        registerForm.hasError('required', 'name')
+                      "
+                      class="text-danger"
+                      >*Full Name is required
+                    </small>
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="age">Age</label>
+                    <input
+                      type="number"
+                      id="age"
+                      name="age"
+                      class="form-control"
+                      formControlName="age"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['age'].dirty &&
+                        registerForm.hasError('required', 'age')
+                      "
+                      class="text-danger"
+                      >*Age is required</small
+                    >
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <input
+                      type="number"
+                      id="phone"
+                      name="phone"
+                      class="form-control"
+                      formControlName="phone"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['phone'].dirty &&
+                        registerForm.hasError('required', 'phone')
+                      "
+                      class="text-danger"
+                      >*Phone Number is required</small
+                    >
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="height">Height</label>
+                    <input
+                      type="number"
+                      id="height"
+                      name="height"
+                      class="form-control"
+                      formControlName="height"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['height'].dirty &&
+                        registerForm.hasError('required', 'height')
+                      "
+                      class="text-danger"
+                      >*Height is required</small
+                    >
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="weight">Weight</label>
+                    <input
+                      type="number"
+                      id="weight"
+                      name="weight"
+                      class="form-control"
+                      formControlName="weight"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['weight'].dirty &&
+                        registerForm.hasError('required', 'weight')
+                      "
+                      class="text-danger"
+                      >*Weight is required</small
+                    >
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="gender">Gender</label>
+                    <input
+                      type="text"
+                      id="gender"
+                      name="gender"
+                      class="form-control"
+                      formControlName="gender"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['gender'].dirty &&
+                        registerForm.hasError('required', 'gender')
+                      "
+                      class="text-danger"
+                    >
+                      *Gender is required
+                    </small>
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="username">Username</label>
+                    <input
+                      type="text"
+                      id="username"
+                      name="username"
+                      class="form-control"
+                      formControlName="username"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['username'].dirty &&
+                        registerForm.hasError('required', 'username')
+                      "
+                      class="text-danger"
+                      >*Username is required</small
+                    >
+                  </div>
+
+                  <div class="form-outline">
+                    <label class="form-label" for="password">Password</label>
+                    <input
+                      type="password"
+                      id="password"
+                      name="password"
+                      class="form-control"
+                      formControlName="password"
+                    />
+                    <small
+                      *ngIf="
+                        registerForm.controls['password'].dirty &&
+                        registerForm.hasError('required', 'password')
+                      "
+                      class="text-danger"
+                      >*Password is required</small
+                    >
+                  </div>
+
+                  <div class="text-center pt-3 mb-5 pb-1">
+                    <button
+                      class="btn btn-dark"
+                      type="submit"
+                      routerLink="/home"
+                      style="color: orange"
+                      (click)="onRegister()"
+                    >
+                      Sign In
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+              <div class="px-3 py-4 p-md-1 mx-4">
+                <img
+                  src="../../assets/gym.jpg"
+                  alt=""
+                  class="img-fluid"
+                  style="margin-top: 0px; padding-top: 0px"
+                />
+                <h1 class="mb-4" style="color: black">More than just a Gym</h1>
+                <h2 class="small mb-0" style="color: black">
+                  "If something stands between you and your success, move it.
+                  Never be denied."
+                </h2>
+                <p style="text-align: right; color: black; font-size: small">
+                  -Dwayne 'The Rock' Johnson
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
