@@ -14,6 +14,7 @@ import {
 import { ValidateFormService } from '../services/validate-form.service';
 import { DataService } from '../services/data.service';
 import { Router } from '@angular/router';
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-register',
@@ -58,7 +59,8 @@ export class RegisterComponent implements OnInit {
           weight: this.registerForm.value.weight,
           gender: this.registerForm.value.gender,
           username: this.registerForm.value.username,
-          password: this.registerForm.value.password,
+          // register with hashed password succeded
+          password: bcrypt.hashSync(this.registerForm.value.password, 10),
         })
         .subscribe((data: any) => {
           if (data['success']) {

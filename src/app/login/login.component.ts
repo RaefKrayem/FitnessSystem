@@ -49,6 +49,7 @@ export class LoginComponent implements OnInit {
       this.http
         .post(this.baseUrl + 'login.php', {
           username: this.LoginForm.value.username,
+          // login with hashed password failed
           password: this.LoginForm.value.password,
         })
         .subscribe((result: any) => {

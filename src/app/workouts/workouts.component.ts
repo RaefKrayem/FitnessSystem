@@ -3,7 +3,6 @@ import { DataService } from '../services/data.service';
 import { HttpClient } from '@angular/common/http';
 import { Exercises } from '../classes/Exercises';
 import { FormBuilder, FormGroup } from '@angular/forms';
-// import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-workouts',
@@ -19,7 +18,7 @@ export class WorkoutsComponent implements OnInit {
   constructor(
     private data: DataService,
     private http: HttpClient,
-    private fb: FormBuilder // private sanitizer: DomSanitizer
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -28,10 +27,6 @@ export class WorkoutsComponent implements OnInit {
       repetitions: [''],
     });
   }
-
-  // getSafeUrl(url: any) {
-  //   return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  // }
 
   completeExercise(exerciseId: any) {
     this.http

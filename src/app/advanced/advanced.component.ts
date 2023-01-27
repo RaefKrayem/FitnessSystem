@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { Exercises } from '../classes/Exercises';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AdvExercises } from '../classes/AdvExercises';
-// import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-advanced',
@@ -20,7 +19,7 @@ export class AdvancedComponent implements OnInit {
   constructor(
     private data: DataService,
     private http: HttpClient,
-    private fb: FormBuilder // private sanitizer: DomSanitizer
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -29,10 +28,6 @@ export class AdvancedComponent implements OnInit {
       repetitions: [''],
     });
   }
-
-  // getSafeUrl(url: any) {
-  //   return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-  // }
 
   completeExercise(exerciseId: any, split: any) {
     this.http
