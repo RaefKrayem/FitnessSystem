@@ -59,8 +59,7 @@ export class RegisterComponent implements OnInit {
           weight: this.registerForm.value.weight,
           gender: this.registerForm.value.gender,
           username: this.registerForm.value.username,
-          // register with hashed password succeded
-          password: bcrypt.hashSync(this.registerForm.value.password, 10),
+          password: this.registerForm.value.password,
         })
         .subscribe((data: any) => {
           if (data['success']) {
